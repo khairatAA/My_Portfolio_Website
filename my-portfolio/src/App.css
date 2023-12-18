@@ -1,7 +1,12 @@
 /* CSS styling for the website */
 
+/* Tailwind */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
 /* Import font url */
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600;700&display=swap');
 
 :root {
     --gold: #DEC127;
@@ -14,13 +19,12 @@
     margin: 0;
     padding: 0;
     text-decoration: none;
-    font-family: "Nunito", sans-serif;
+    font-family: "Poppins", sans-serif;
     border: 0;
     outline: none;
     transition: all .2s linear;
     color: #FFFFFF;
     background: rgba(90, 90, 185, 100%);
-    /* background-color: rgb(109, 65, 161); */
 }
 
 *::selection{
@@ -36,26 +40,88 @@ html{
 }
 
 /* Navbar styling */
+.navbar {
+    font-size: 1.2rem;
+    padding: 2.5rem 9%
+}
+
+/*Navavbar spacing*/
+nav.navbar.navbar-expand-lg.navbar-light.fixed-top {
+    padding: 1.2rem 9%;
+}
+
+/* Brand name styling*/
+.navbar .container-fluid .navbar-brand{
+    color: #DEC127;
+    font-weight: bold;
+    text-decoration: none;
+}
 
 /*boarder colour of the toggle button for mobile view*/
 .navbar .navbar-toggler {
     border-color: #DEC127;
 }
 
-/* Brand name styling*/
-.navbar .container-fluid .navbar-brand{
-    font-size: 1.2rem;
-    color: #DEC127;
-    font-weight: bold;
+
+/*Nav icon media query*/
+.navbar .container-fluid .collapse .navbar-nav {
+    /* position: absolute;
+    top: 100%; right: 0; left: 0;
+    border-top: .1rem solid rgba(255,255,255,.2); */
+    /* padding: 1rem 2rem;  */
+    background-color: rgba(90, 90, 185, 0.8); 
 }
 
-/* navbar btn */
-.navbar-toggler:focus {
-    box-shadow: 0 0 0 #DEC127;
-}
-
-.navbar .container-fluid {
+/* home section */
+.home {
     display: flex;
     flex-direction: row;
-    align-items: space-evenly;
+    padding: 7rem 9%;
+    width: 100%;
+    align-items: center;
+}
+
+.home_img, .home_content {
+    flex: 1;
+    padding: 20px;
+}
+
+.home_img {
+    max-width: 100%;
+    height: auto;
+}
+
+.home_content_name {
+    font-weight:bolder;
+    font-size: 2.5rem;
+}
+
+.home_content_name p {
+    margin: 0;
+}
+
+.home_content_title {
+    color: #DEC127;
+    font-weight:800;
+    font-size: 2rem;
+}
+
+.home_content_body {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+}
+
+.home_content_socials{
+    display: flex;
+    gap: 20px;
+}
+
+/* Media query */
+
+/*Home page content*/
+@media (max-width:988px){
+    .home {
+        flex-direction: column-reverse;
+        align-items: center;
+    }
 }

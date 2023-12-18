@@ -1,9 +1,10 @@
 {/* The Navbar componet of the website */}
 import { Link } from 'react-router-dom';
 
+
 export default function Navbar() {
     return (
-    <nav className="navbar navbar-expand-lg">
+    <nav className="navbar navbar-expand-lg navbar-light fixed-top">
         <div className="container-fluid">
             <Link className="navbar-brand" to="/">Khairat</Link>
             {/* Responsive icon */}
@@ -31,12 +32,11 @@ export default function Navbar() {
                         <Link className="nav-link" to="/Services">Services</Link>
                     </li>
                     {/* Add similar links for other sections */}
-
-                    {/* Button on the left */}
-                    <button className="btn btn-sm btn-outline-secondary ms-auto" type="button">Button</button>
                 </ul>
+
+                {/* Button on the left */}
+                <button className="nav_btn">Contact me</button>
             </div>
-            
         </div>
     </nav>
     )
