@@ -1,8 +1,9 @@
-{/* The Navbar componet of the website */}
 import { Link } from 'react-router-dom';
 
 
+{/* The Navbar componet of the website */}
 export default function Navbar() {
+   
     return (
     <nav className="navbar navbar-expand-lg navbar-light fixed-top">
         <div className="container-fluid">
@@ -17,7 +18,7 @@ export default function Navbar() {
             <div className="collapse navbar-collapse" id="navbarNav">
                 <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                     <li className="nav-item">
-                        <Link className="nav-link" to="/">Home</Link>
+                        <Link className="nav-link home-colour" to="/">Home</Link>
                     </li>
                     <li className="nav-item">
                         <Link className="nav-link" to="/About">About me</Link>
@@ -35,7 +36,10 @@ export default function Navbar() {
                 </ul>
 
                 {/* Button on the left */}
-                <button className="nav_btn">Contact me</button>
+                <button onClick={() => window.location.href('mailto:khairatadesina01@gmail.com')} className='nav-btn'>
+                    Contact Me
+                </button>
+
             </div>
         </div>
     </nav>

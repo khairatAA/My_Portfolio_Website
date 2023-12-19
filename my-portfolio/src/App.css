@@ -39,6 +39,15 @@ html{
     scroll-behavior: smooth;
 }
 
+/* button */
+.navbar .container-fluid .collapse button {
+    color: #FFFFFF;
+    background-color: #DEC127;
+    font-size: 1rem;
+    padding: 0.7rem;
+    border-radius: 100px;
+}
+
 /* Navbar styling */
 .navbar {
     font-size: 1.2rem;
@@ -55,6 +64,7 @@ nav.navbar.navbar-expand-lg.navbar-light.fixed-top {
     color: #DEC127;
     font-weight: bold;
     text-decoration: none;
+    font-size: 1.5rem;
 }
 
 /*boarder colour of the toggle button for mobile view*/
@@ -62,15 +72,25 @@ nav.navbar.navbar-expand-lg.navbar-light.fixed-top {
     border-color: #DEC127;
 }
 
-
-/*Nav icon media query*/
+/* Navbar list ordering */
 .navbar .container-fluid .collapse .navbar-nav {
-    /* position: absolute;
-    top: 100%; right: 0; left: 0;
-    border-top: .1rem solid rgba(255,255,255,.2); */
-    /* padding: 1rem 2rem;  */
-    background-color: rgba(90, 90, 185, 0.8); 
+    display: flex;
+    margin: auto;
+    gap: 1rem;
 }
+
+/* Nav list colour */
+.navbar .container-fluid .collapse .navbar-nav .nav-item .nav-link {
+    color: #FFFFFF;
+    font-weight: bold;
+}
+
+.navbar .container-fluid .collapse .navbar-nav .nav-item .nav-link:focus,
+.navbar .container-fluid .collapse .navbar-nav .nav-item .nav-link:hover,
+.navbar .container-fluid .collapse .navbar-nav .nav-item .home-colour {
+    color: #DEC127;
+}
+
 
 /* home section */
 .home {
