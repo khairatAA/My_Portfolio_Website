@@ -21,22 +21,22 @@ export default function Navbar() {
                         <Link className="nav-link home-colour" to="/">Home</Link>
                     </li>
                     <li className="nav-item">
-                        <Link className="nav-link" to="/About">About me</Link>
+                        <Link className="nav-link" to="/#About">About Me</Link>
                     </li>
                     <li className="nav-item">
-                        <Link className="nav-link" to="/Portfolio">Portfolio</Link>
+                        <Link className="nav-link" to="/#Portfolio">Portfolio</Link>
                     </li>
                     <li className="nav-item">
-                        <Link className="nav-link" to="/Skills">Skills</Link>
+                        <Link className="nav-link" to="/#Skills">Skills</Link>
                     </li>
                     <li className="nav-item">
-                        <Link className="nav-link" to="/Services">Services</Link>
+                        <Link className="nav-link" to="/#Services">Services</Link>
                     </li>
                     {/* Add similar links for other sections */}
                 </ul>
 
                 {/* Button on the left */}
-                <button onClick={() => window.location.href('mailto:khairatadesina01@gmail.com')} className='nav-btn'>
+                <button className='nav-btn'>
                     Contact Me
                 </button>
 
