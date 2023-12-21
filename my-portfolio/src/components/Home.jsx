@@ -18,7 +18,7 @@ export default function Home() {
     return (
         <div className= "home" id="Home">
            <div className="home_img">
-                <img src={hero_img} alt="Ambitious woman walking" />
+                <img src={hero_img} className='girl_img' alt="Ambitious woman walking" />
            </div>
            <div className='home_content'>
                 <div className='home_content_name'>
@@ -35,19 +35,19 @@ export default function Home() {
                 </div>
                 <div className='home_content_socials'>
                     <a href={githubUrl} target="_blank" rel="noopener noreferrer">
-                        <img src={github_icon} alt="Github icon" />
+                        <img className='socials_icon' src={github_icon} alt="Github icon" />
                     </a>
 
                     <a href={linkedinUrl} target="_blank" rel="noopener noreferrer">
-                        <img src={linkedin_icon} alt="LinkedIn icon" />
+                        <img className='socials_icon' src={linkedin_icon} alt="LinkedIn icon" />
                     </a>
 
                     <a href={XUrl} target="_blank" rel="noopener noreferrer">
-                        <img src={X_icon} alt="X icon" />
+                        <img className='socials_icon' src={X_icon} alt="X icon" />
                     </a>
 
                     <a href={whatsAppUrl} target="_blank" rel="noopener noreferrer">
-                        <img src={whatapp_icon} alt="WhatsApp icon" />
+                        <img className='socials_icon' src={whatapp_icon} alt="WhatsApp icon" />
                     </a>
                 </div>
            </div>
