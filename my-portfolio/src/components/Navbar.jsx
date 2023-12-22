@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import About from './About';
 
 
 {/* The Navbar componet of the website */}
@@ -21,7 +22,7 @@ export default function Navbar() {
                         <Link className="nav-link home-colour" to="/">Home</Link>
                     </li>
                     <li className="nav-item">
-                        <Link className="nav-link" to="/#About">About Me</Link>
+                        <Link className="nav-link" to="/">About Me</Link>
                     </li>
                     <li className="nav-item">
                         <Link className="nav-link" to="/#Portfolio">Portfolio</Link>

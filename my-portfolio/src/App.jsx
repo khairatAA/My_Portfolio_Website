@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import Home from './components/Home';
 import Navbar from './components/Navbar';
+import About from './components/About';
 
 
 {/* All the compontents are called here */}
@@ -16,6 +17,7 @@ const App = () => {
         <Routes>
           <Route exact path='/' element={<Home />} />
         </Routes>
+        <About />
       </div>
     </Router>
   )
