@@ -1,10 +1,10 @@
 // This file contains data used for the portfolio section of the website
-
+import simple_shell from "./src/assets/simple_shell.svg";
 const data = [
     {
         Id: 4,
         name: "Simple Shell",
-        img:"./src/assets/simple_shell.svg",
+        img: `${simple_shell}`,
         stack: "Stack: C programming",
         content: "Using concepts like linked lists, bit manipulation, file I/O, and data structures, developed a shell interface, mirroring the functionalities of established shells such as bash or sh."
     },
