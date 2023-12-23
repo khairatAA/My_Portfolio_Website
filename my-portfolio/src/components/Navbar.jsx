@@ -25,7 +25,7 @@ export default function Navbar() {
                         <Link className="nav-link" to="/">About Me</Link>
                     </li>
                     <li className="nav-item">
-                        <Link className="nav-link" to="/#Portfolio">Portfolio</Link>
+                        <Link className="nav-link" to="/Portfolio">Portfolio</Link>
                     </li>
                     <li className="nav-item">
                         <Link className="nav-link" to="/#Skills">Skills</Link>

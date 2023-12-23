@@ -16,7 +16,7 @@ export default function Navbar() {
                     </p>
                 </div>
                 <div className="about_content_text">
-                    <p> Welcome to my portfolio! I'm thrilled that you're exploring my work.
+                    <p className="content"> Welcome to my portfolio! I'm thrilled that you're exploring my work.
                         My passion lies in constructing both frontend and backend components of applications. As a Full-
                         stack Software Engineer, I specialize in a wide array of technologies including C programming,
                         Python, React JS, Node JS, MySQL, HTML, and CSS.

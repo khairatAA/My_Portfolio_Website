@@ -40,11 +40,15 @@ html{
 }
 
 /* button */
-.navbar .container-fluid .collapse button, .about_content_btn button, .about_content_btn button:hover {
+.navbar .container-fluid .collapse button,
+.about_content_btn button,
+.about_content_btn button:hover,
+.portfolio-btn .btn,
+.portfolio-btn:hover .btn {
     color: #FFFFFF;
     background-color: #DEC127;
     font-size: 1rem;
-    padding: 0.7rem;
+    padding: 0.5rem;
     border-radius: 100px;
 }
 
@@ -111,7 +115,7 @@ nav.navbar.navbar-expand-lg.navbar-light.fixed-top {
     padding: 20px;
 }
 
-.home_content_name, .about_content_title {
+.home_content_name, .about_content_title, .portfolio-title {
     font-weight:bolder;
     font-size: 2.5rem;
 }
@@ -129,6 +133,7 @@ nav.navbar.navbar-expand-lg.navbar-light.fixed-top {
 .home_content_body, .about_content_text {
     font-size: 1rem;
     margin-bottom: 2rem;
+    text-align: justify;
 }
 
 .home_content_socials{
@@ -164,6 +169,65 @@ nav.navbar.navbar-expand-lg.navbar-light.fixed-top {
 }
 
 
+/* Portfolio section*/
+
+.portfolio {
+    padding: 7rem 9%;
+    padding-top: 0;
+}
+
+.portfolio-title{
+    text-align: center;
+    padding-bottom: 2rem;
+}
+
+.portfolio-img img{
+    margin: 0;
+    width:auto;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    object-fit: contain;
+    margin-bottom: 1rem;
+}
+
+.portfolio-text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 260px;
+    height: 230px;
+}
+
+.portfolio p{
+    margin: 0;
+}
+
+.portfolio-name{
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.portfolio-stack, .portfolio-content{
+    font-size: 0.8rem;
+    font-weight: 400;
+    text-align: justify;   
+}
+
+.portfolio-stack{
+    font-weight: 600;
+}
+
+.slick-slide > div {
+    margin: 0 10px;
+}
+
+.portfolio-btn {
+    display: flex;
+    justify-content: space-between;
+    margin-top: auto;
+}
+
+
 /* Media query */
 
 /* Tablet view */
@@ -196,16 +260,15 @@ nav.navbar.navbar-expand-lg.navbar-light.fixed-top {
 
 /* Large mobile screen */
 @media (max-width:430px) {
-
     /*Navbar for Large mobile screen*/
     .navbar .container-fluid {
         padding: 0;
     }
 
     /* Home for Large mobile screen */
-
     .home_content_name,
-    .about_content_title {
+    .about_content_title,
+    .portfolio-title {
         font-size: 1.9rem;
     }
     
@@ -225,22 +288,28 @@ nav.navbar.navbar-expand-lg.navbar-light.fixed-top {
         flex-direction: column;
         gap: 2rem;
     }
+
+    /* Portfolio */
+    .portfolio-title{
+        padding-bottom: 1rem;
+    }
 }
 
 /* Small mobile screen */
 @media (max-width:325px) {
 
     /* Home for small mobile screen */
-    .home_content_name, .about_content_title {
+    .home_content_name,
+    .about_content_title,
+    .portfolio-title {
         font-size: 1.7rem;
     }
 
-    .home_content_title,
-    .about_content_title {
+    .home_content_title {
         font-size: 1.5rem;
     }
 
-    .home_content_body {
+    .home_content_body,  .about_content_text .content{
         font-size: 0.8rem;
     }
 
