@@ -59,10 +59,16 @@ export default function Navbar() {
                             <p className="portfolio-name">{d.name}</p>
                             <p className="portfolio-stack">{d.stack}</p>
                             <p className="portfolio-content">{d.content}</p>
+
                             <div className="portfolio-btn">
-                                <button className="btn">Live Demo</button>
-                                <button className="btn">View Code</button>
+                                <a href={d.liveDemoUrl} target="_blank" rel="noopener noreferrer">
+                                    <button className="btn">Live Demo</button>
+                                </a>
+                                <a href={d.ViewCodeUrl} target="_blank" rel="noopener noreferrer">
+                                    <button className="btn">View Code</button>
+                                </a>
                             </div>
+                            
                         </div>
                     </div>
                 ))}

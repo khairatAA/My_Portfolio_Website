@@ -52,6 +52,11 @@ html{
     border-radius: 100px;
 }
 
+a, a:hover{
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
 /* Navbar styling */
 .navbar {
     font-size: 1.2rem;
