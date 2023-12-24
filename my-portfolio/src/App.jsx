@@ -7,6 +7,7 @@ import Home from './components/Home';
 import Navbar from './components/Navbar';
 import About from './components/About';
 import Portfolio from './components/Portfolio';
+import ContactMe from './components/Contact';
 
 
 {/* All the compontents are called here */}
@@ -20,6 +21,7 @@ const App = () => {
         </Routes>
         <About />
         <Portfolio />
+        <ContactMe />
       </div>
     </Router>
   )

@@ -1,9 +1,12 @@
 import { Link } from 'react-router-dom';
 import About from './About';
+import React, { useState } from 'react';
+import ContactMe from './Contact';
 
 
 {/* The Navbar componet of the website */}
 export default function Navbar() {
+    const [showContactForm, setShowContactForm] = useState(false);
    
     return (
     <nav className="navbar navbar-expand-lg navbar-light fixed-top">
@@ -37,10 +40,15 @@ export default function Navbar() {
                 </ul>
 
                 {/* Button on the left */}
-                <button className='nav-btn'>
-                    Contact Me
+                {/* <button className='nav-btn' onClick={() => setShowContactForm(true)}>
+                        Contact Me
                 </button>
 
+                {showContactForm && <ContactMe onClose={() => setShowContactForm(false)} />} */}
+
+                <button className='nav-btn'>
+                        Contact Me
+                </button>
             </div>
         </div>
     </nav>

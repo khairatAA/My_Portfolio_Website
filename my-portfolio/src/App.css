@@ -48,8 +48,8 @@ html{
     color: #FFFFFF;
     background-color: #DEC127;
     font-size: 1rem;
-    padding: 0.5rem;
-    border-radius: 100px;
+    padding: 7px;
+    border-radius: 5px;
 }
 
 a, a:hover{
@@ -102,7 +102,7 @@ nav.navbar.navbar-expand-lg.navbar-light.fixed-top {
 
 
 /* home section and About section*/
-.home, .about {
+.home, .about, .contact-me {
     display: flex;
     flex-direction: row;
     padding: 7rem 9%;
@@ -120,7 +120,10 @@ nav.navbar.navbar-expand-lg.navbar-light.fixed-top {
     padding: 20px;
 }
 
-.home_content_name, .about_content_title, .portfolio-title {
+.home_content_name,
+.about_content_title,
+.portfolio-title,
+.contact-me-title {
     font-weight:bolder;
     font-size: 2.5rem;
 }
@@ -233,6 +236,80 @@ nav.navbar.navbar-expand-lg.navbar-light.fixed-top {
 }
 
 
+/* Contact Me */
+.contact-me{
+    display: flex;
+    flex-direction: column;
+    padding-top: 0;
+    align-items: center;
+}
+
+.contact-me-title{
+    text-align: center;
+}
+
+.contact-me-title span{
+    color: #DEC127;
+}
+
+.contact-me-form{
+    width: 400px;
+}
+
+.notification {
+    color: #DEC127;
+    font-weight: bold;
+}
+
+form {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 100%;
+}
+
+input {
+    width: 100%;
+    height: 35px;
+    padding: 7px;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid rgb(220, 220, 220);
+
+    &:focus {
+        border: 2px solid rgb(222, 193, 39);
+    }
+}
+
+textarea {
+    max-width: 100%;
+    min-width: 100%;
+    width: 100%;
+    max-height: 100px;
+    min-height: 100px;
+    padding: 7px;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid rgb(220, 220, 220);
+
+    &:focus {
+        border: 2px solid rgb(222, 193, 39);
+    }
+}
+
+label {
+    margin-top: 1rem;
+}
+
+input[type="submit"] {
+    margin-top: 2rem;
+    cursor: pointer;
+    background: rgb(222, 193, 39);
+    color: white;
+    border: none;
+}
+
+
 /* Media query */
 
 /* Tablet view */
@@ -254,6 +331,7 @@ nav.navbar.navbar-expand-lg.navbar-light.fixed-top {
         display: flex;
         justify-content: center;
     }
+    
 }
 
 @media (max-width:480px) {
@@ -273,7 +351,8 @@ nav.navbar.navbar-expand-lg.navbar-light.fixed-top {
     /* Home for Large mobile screen */
     .home_content_name,
     .about_content_title,
-    .portfolio-title {
+    .portfolio-title,
+    .contact-me-title {
         font-size: 1.9rem;
     }
     
@@ -298,6 +377,11 @@ nav.navbar.navbar-expand-lg.navbar-light.fixed-top {
     .portfolio-title{
         padding-bottom: 1rem;
     }
+
+    /*Contact me*/
+    .contact-me-form{
+        width: 300px;
+    }
 }
 
 /* Small mobile screen */
@@ -306,7 +390,8 @@ nav.navbar.navbar-expand-lg.navbar-light.fixed-top {
     /* Home for small mobile screen */
     .home_content_name,
     .about_content_title,
-    .portfolio-title {
+    .portfolio-title,
+    .contact-me-title {
         font-size: 1.7rem;
     }
 
@@ -320,5 +405,20 @@ nav.navbar.navbar-expand-lg.navbar-light.fixed-top {
 
     .home .home_content .home_content_socials .socials_icon {
         width: 30px;
+    }
+
+    /*Portfolio*/
+    .portfolio-text{
+        width: 220px;
+        height: 260px;
+    }
+
+    .slick-slide > div {
+        margin: 0 0px;
+    }
+
+    /*Contact me*/
+    .contact-me-form{
+        width: 250px;
     }
 }

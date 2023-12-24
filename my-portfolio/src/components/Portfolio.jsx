@@ -41,6 +41,15 @@ export default function Navbar() {
                     centerMode:true,
                     centerPadding: '15px'
                 }
+            },
+            {
+                breakpoint: 400,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    centerMode:false,
+                    centerPadding: '0px'
+                }
             }
         ]
     };
