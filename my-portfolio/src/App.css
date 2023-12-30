@@ -52,10 +52,6 @@ html{
     border-radius: 5px;
 }
 
-.navbar .container-fluid .collapse .btn:active{
-    background-color: transparent;
-}
-
 a, a:hover{
     text-decoration: none;
     color: #FFFFFF;

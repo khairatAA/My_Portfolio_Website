@@ -50,6 +50,7 @@ const Portfolio = ({ sectionId }) => {
             {
                 breakpoint: 1024,
                 settings: {
+                    id: 1,
                     slidesToShow: 3,
                     slidesToScroll: 1,
                     infinite: false,
@@ -59,6 +60,7 @@ const Portfolio = ({ sectionId }) => {
             {
                 breakpoint: 965,
                 settings: {
+                    id: 2,
                     slidesToShow: 2,
                     slidesToScroll: 1,
                     initialSlide: 2
@@ -67,6 +69,7 @@ const Portfolio = ({ sectionId }) => {
             {
                 breakpoint: 600,
                 settings: {
+                    id: 3,
                     slidesToShow: 1,
                     slidesToScroll: 1,
                     centerMode:true,
@@ -76,6 +79,7 @@ const Portfolio = ({ sectionId }) => {
             {
                 breakpoint: 400,
                 settings: {
+                    id: 4,
                     slidesToShow: 1,
                     slidesToScroll: 1,
                     centerMode:false,
