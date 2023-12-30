@@ -1,11 +1,47 @@
 import About_me from "../assets/about_me.svg";
+import React, { useContext, useEffect, useRef } from 'react';
+import { ScrollContext } from "./ScrollContext";
 
 /* About section */
 
-export default function Navbar() {
-   
+const About = ({ sectionId }) => {
+    // Open Resume URL
+    const openResumeUrl = () => {
+        const resumeUrl = 'https://drive.google.com/file/d/1bjMnbFqPxgDdAzdxSoY2yqp70DBXqwyJ/view?usp=sharing';
+        window.open(resumeUrl, '_blank');
+    };
+
+    // Handles the scrolling effect even the function is clicked from the navbar
+    // Using Intersection observer
+    const { setActiveSection } = useContext(ScrollContext);
+    const sectionRef = useRef(null);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setActiveSection(sectionId);
+                }
+            },
+            {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.5,
+            }
+        );
+        if (sectionRef.current) {
+            observer.observe(sectionRef.current);
+        }
+
+        return () => {
+            if (sectionRef.current) {
+                observer.unobserve(sectionRef.current);
+            }
+        };
+    }, [setActiveSection, sectionId]);
+    
     return (
-        <div className="about" id="About">
+        <div className="about" id={sectionId} ref={sectionRef}>
             <div className="about_content">
                 <div className="about_content_title">
                     <p className="about_title">
@@ -43,16 +79,16 @@ export default function Navbar() {
                     </div>
                 </div>
                 <div className="about_content_btn">
-                    <button className='btn'>
+                    <button className='btn' onClick={openResumeUrl}>
                         View Resume
                     </button>
-                    {/* <button className='btn'>
-                        View Portfolio
-                    </button> */}
                 </div>
             </div>
             <div className="about_img">
                 <img src={About_me} alt="Lady sitting in front of a screen" />
             </div>
         </div>
-    )}
+    )
+}
+
+export default About;

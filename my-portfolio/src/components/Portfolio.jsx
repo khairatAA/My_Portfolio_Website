@@ -5,8 +5,39 @@ import Slider from "react-slick";
 import portfolio_data from "../../portfolio_data";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
+import React, { useContext, useEffect, useRef } from 'react';
+import { ScrollContext } from "./ScrollContext";
 
-export default function Navbar() {
+const Portfolio = ({ sectionId }) => {
+    // Handles the scrolling effect even the function is clicked from the navbar
+    // Using Intersection observer
+    const { setActiveSection } = useContext(ScrollContext);
+    const sectionRef = useRef(null);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setActiveSection(sectionId);
+                }
+            },
+            {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.5,
+            }
+        );
+        if (sectionRef.current) {
+            observer.observe(sectionRef.current);
+        }
+
+        return () => {
+            if (sectionRef.current) {
+                observer.unobserve(sectionRef.current);
+            }
+        };
+    }, [setActiveSection, sectionId]);
+
     /* react-slick for creating caserol */
     const settings = {
         dots: false,
@@ -55,7 +86,7 @@ export default function Navbar() {
     };
    
     return (
-        <div className="portfolio">
+        <div className="portfolio" id={sectionId} ref={sectionRef}>
             <p className="portfolio-title">Portfolio</p>
             <Slider {...settings}>
                 {portfolio_data.map((d) => (
@@ -84,4 +115,6 @@ export default function Navbar() {
             </Slider>
         </div>
     )
-}
+};
+
+export default Portfolio;

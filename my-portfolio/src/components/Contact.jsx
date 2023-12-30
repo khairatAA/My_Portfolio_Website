@@ -7,7 +7,7 @@ import { useState } from 'react';
 // dotenv.config();
 
 
-export default function ContactMe({ onClose }) {
+const ContactMe = ({ onClose }) => {
     const [notification, setNotification] = useState(null);
     const form = useRef();
     
@@ -34,7 +34,7 @@ export default function ContactMe({ onClose }) {
     };
 
   return (
-    <div className='contact-me'>
+    <div className='contact-me' id='contact_me'>
         <p className='contact-me-title'>Contact <span>Me</span></p>
 
         <div className='contact-me-form'>
@@ -58,3 +58,5 @@ export default function ContactMe({ onClose }) {
     </div>
   );
 };
+
+export default ContactMe;

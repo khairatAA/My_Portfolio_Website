@@ -8,23 +8,38 @@ import Navbar from './components/Navbar';
 import About from './components/About';
 import Portfolio from './components/Portfolio';
 import ContactMe from './components/Contact';
+import { ScrollProvider } from "./components/ScrollContext";
+// import { Switch } from '@headlessui/react';
 
 
-{/* All the compontents are called here */}
+{/* All the compontents are called here amd route to
+different parts of the page are done here*/}
+
 const App = () => {
   return (
     <Router>
-      <div>
-        <Navbar /> {/* Will include the navber in every page */}
-        <Routes>
-          <Route exact path='/' element={<Home />} />
-        </Routes>
-        <About />
-        <Portfolio />
-        <ContactMe />
-      </div>
+      <ScrollProvider>
+        <div>
+          <Navbar /> {/* Will include the navber in every page */}
+          <Home sectionId='home' />
+          <About sectionId='about' />
+          <Portfolio sectionId='portfolio' />
+          <ContactMe />
+        </div>
+      </ScrollProvider>
     </Router>
   )
 }
 
-export default App
+export default App;
+{/* <Routes>
+            
+            <Route path="/" element={<Home sectionId="home" />} />
+
+            <Route path="/#about" element={<About sectionId="about" />} />
+
+            <Route path="/#portfolio" element={<Portfolio sectionId="portfolio" />} />
+
+            <Route path="/#contact" element={<ContactMe sectionId="contact" />} />
+
+          </Routes> */}

@@ -40,7 +40,7 @@ html{
 }
 
 /* button */
-.navbar .container-fluid .collapse button,
+.navbar .container-fluid .collapse .btn,
 .about_content_btn button,
 .about_content_btn button:hover,
 .portfolio-btn .btn,
@@ -50,6 +50,10 @@ html{
     font-size: 1rem;
     padding: 7px;
     border-radius: 5px;
+}
+
+.navbar .container-fluid .collapse .btn:active{
+    background-color: transparent;
 }
 
 a, a:hover{

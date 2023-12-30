@@ -4,19 +4,50 @@ import linkedin_icon from '../assets/linkedin_icon.svg'
 import X_icon from '../assets/X_icon.svg'
 import whatapp_icon from '../assets/whatapp_icon.svg'
 import TypingEffect from "./TypingEffect";
+import React, { useContext, useEffect, useRef } from 'react';
+import { ScrollContext } from "./ScrollContext";
 
 
 {/* Contents of the Home page */}
-export default function Home() {
+const Home = ({ sectionId }) => {
     const originalText = "Khairat Adesina";
     const TypingSpeed = 500;
     const githubUrl = 'https://github.com/khairatAA';
     const linkedinUrl = 'https://www.linkedin.com/in/khairat-adesina1234/';
     const XUrl = 'https://twitter.com/_dedamola';
-    const whatsAppUrl = 'https://wa.me/qr/JNIEBHHUOJ6WP1 '
+    const whatsAppUrl = 'https://wa.me/qr/JNIEBHHUOJ6WP1'
+
+    // Handles the scrolling effect even the function is clicked from the navbar
+    // Using Intersection observer
+    const { setActiveSection } = useContext(ScrollContext);
+    const sectionRef = useRef(null);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setActiveSection(sectionId);
+                }
+            },
+            {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.5,
+            }
+        );
+        if (sectionRef.current) {
+            observer.observe(sectionRef.current);
+        }
+
+        return () => {
+            if (sectionRef.current) {
+                observer.unobserve(sectionRef.current);
+            }
+        };
+    }, [setActiveSection, sectionId]);
 
     return (
-        <div className= "home" id="Home">
+        <div className= "home" id={sectionId} ref={sectionRef}>
            <div className="home_img">
                 <img src={hero_img} className='girl_img' alt="Ambitious woman walking" />
            </div>
@@ -53,4 +84,6 @@ export default function Home() {
            </div>
         </div>
     )
-}
+};
+
+export default Home;

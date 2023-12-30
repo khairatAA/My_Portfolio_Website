@@ -1,17 +1,25 @@
 import { Link } from 'react-router-dom';
-import About from './About';
-import React, { useState } from 'react';
-import ContactMe from './Contact';
+import React, { useState, useContext } from 'react';
+import { ScrollContext } from "./ScrollContext";
 
 
 {/* The Navbar componet of the website */}
 export default function Navbar() {
-    const [showContactForm, setShowContactForm] = useState(false);
-   
+
+    const { setActiveSection } = useContext(ScrollContext);
+
+    const scrollToContact = () => {
+        setActiveSection('contact');
+        const contactSection = document.getElementById('contact_me');
+        if (contactSection) {
+            contactSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
     return (
     <nav className="navbar navbar-expand-lg navbar-light fixed-top">
         <div className="container-fluid">
-            <Link className="navbar-brand" to="/">Khairat</Link>
+            <a href='/' className="navbar-brand">Khairat</a>
             {/* Responsive icon */}
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
@@ -22,31 +30,29 @@ export default function Navbar() {
             <div className="collapse navbar-collapse" id="navbarNav">
                 <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                     <li className="nav-item">
-                        <Link className="nav-link home-colour" to="/">Home</Link>
+                        <a href='/' className="nav-link home-colour">Home</a>
                     </li>
+
                     <li className="nav-item">
-                        <Link className="nav-link" to="/">About Me</Link>
+                        <a href='#about' className="nav-link">About Me</a>
                     </li>
+
                     <li className="nav-item">
-                        <Link className="nav-link" to="/Portfolio">Portfolio</Link>
+                        <a href='#portfolio' className="nav-link">Portfolio</a>
                     </li>
+
                     <li className="nav-item">
-                        <Link className="nav-link" to="/#Skills">Skills</Link>
+                        <a href='#skills' className="nav-link">Skills</a>
                     </li>
+
                     <li className="nav-item">
-                        <Link className="nav-link" to="/#Services">Services</Link>
+                        <a href='#services' className="nav-link">Services</a>
                     </li>
                     {/* Add similar links for other sections */}
                 </ul>
 
                 {/* Button on the left */}
-                {/* <button className='nav-btn' onClick={() => setShowContactForm(true)}>
-                        Contact Me
-                </button>
-
-                {showContactForm && <ContactMe onClose={() => setShowContactForm(false)} />} */}
-
-                <button className='nav-btn'>
+                <button className='btn' onClick={scrollToContact}>
                         Contact Me
                 </button>
             </div>
