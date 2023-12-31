@@ -45,10 +45,10 @@ const About = ({ sectionId }) => {
         <div className="about" id={sectionId} ref={sectionRef}>
             <div className="about_content">
                 <div className="about_content_title">
-                    <p className="about_title" data-aos="fade-right">
+                    <p className="about_title" data-aos="zoom-in">
                         What am I all
                     </p>
-                    <p className="about_title" data-aos="fade-left">
+                    <p className="about_title" data-aos="zoom-in">
                         about?
                     </p>
                 </div>
