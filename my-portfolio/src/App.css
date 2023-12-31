@@ -100,7 +100,6 @@ nav.navbar.navbar-expand-lg.navbar-light.fixed-top {
     color: #DEC127;
 }
 
-
 /* home section and About section*/
 .home, .about, .contact-me {
     display: flex;
@@ -118,6 +117,10 @@ nav.navbar.navbar-expand-lg.navbar-light.fixed-top {
 .home_img, .home_content, .about_img, .about_content {
     flex: 1;
     padding: 20px;
+}
+
+.home_content{
+    position: relative;
 }
 
 .home_content_name,
@@ -147,6 +150,10 @@ nav.navbar.navbar-expand-lg.navbar-light.fixed-top {
 .home_content_socials{
     display: flex;
     gap: 20px;
+}
+
+.home .girl_img{
+    position: relative;
 }
 
 /* About section */
@@ -309,6 +316,11 @@ input[type="submit"] {
     border: none;
 }
 
+/* React icons */
+.react-icon {
+    background-color: #DEC127;
+}
+
 
 /* Media query */
 
@@ -330,6 +342,10 @@ input[type="submit"] {
     .about .about_img {
         display: flex;
         justify-content: center;
+    }
+
+    .home .girl_img{
+        position: relative;
     }
     
 }

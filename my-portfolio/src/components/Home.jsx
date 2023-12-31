@@ -3,9 +3,12 @@ import github_icon from '../assets/github_icon.svg'
 import linkedin_icon from '../assets/linkedin_icon.svg'
 import X_icon from '../assets/X_icon.svg'
 import whatapp_icon from '../assets/whatapp_icon.svg'
-import TypingEffect from "./TypingEffect";
-import React, { useContext, useEffect, useRef } from 'react';
+import TypewriterComponent from "./TypingEffect";
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import { ScrollContext } from "./ScrollContext";
+import AOS from 'aos'; // For animation
+import 'aos/dist/aos.css';
+import ParticleEffect from './ParticleEffect';
 
 
 {/* Contents of the Home page */}
@@ -22,7 +25,29 @@ const Home = ({ sectionId }) => {
     const { setActiveSection } = useContext(ScrollContext);
     const sectionRef = useRef(null);
 
+    // To get currecnt section for the reat particles
+    const [currentSection, setCurrentSection] = useState('home');
+
     useEffect(() => {
+
+        // Get current section for the react partcles
+        const handleScroll = () => {
+            // Determine the current section based on scroll position
+            // For simplicity, let's assume 'home' section is at the top
+            const scrollTop = window.scrollY || document.documentElement.scrollTop;
+            if (scrollTop < 200) {
+              setCurrentSection('home');
+            } else {
+              setCurrentSection(''); // If not in the 'home' section
+            }
+        };
+
+        // Animate on scroll
+        AOS.init({duration: 2000}); // Initialize AOS
+        AOS.refresh();
+        AOS.refreshHard();
+        AOS.refreshHard();
+        
         const observer = new IntersectionObserver(
             ([entry]) => {
                 if (entry.isIntersecting) {
@@ -39,7 +64,11 @@ const Home = ({ sectionId }) => {
             observer.observe(sectionRef.current);
         }
 
+        // Event listener for scrolling
+        window.addEventListener('scroll', handleScroll);
+
         return () => {
+            window.removeEventListener('scroll', handleScroll);
             if (sectionRef.current) {
                 observer.unobserve(sectionRef.current);
             }
@@ -48,15 +77,17 @@ const Home = ({ sectionId }) => {
 
     return (
         <div className= "home" id={sectionId} ref={sectionRef}>
-           <div className="home_img">
+            {currentSection === 'home' && <ParticleEffect />}
+           <div
+           className="home_img">
                 <img src={hero_img} className='girl_img' alt="Ambitious woman walking" />
            </div>
            <div className='home_content'>
                 <div className='home_content_name'>
-                  <p>Hi, my name is </p>
-                  <TypingEffect text={originalText} typingSpeed={TypingSpeed}/>
+                  <p data-aos="fade-right">Hi, my name is </p>
+                  <TypewriterComponent />
                 </div>
-                <div className='home_content_title'>
+                <div className='home_content_title' data-aos="fade-left">
                     Software Engineer
                 </div>
                 <div className='home_content_body'>
@@ -65,19 +96,19 @@ const Home = ({ sectionId }) => {
                 MySQL, Bootstrap, HTML, CSS and DevOps.
                 </div>
                 <div className='home_content_socials'>
-                    <a href={githubUrl} target="_blank" rel="noopener noreferrer">
+                    <a href={githubUrl} target="_blank" rel="noopener noreferrer" data-aos="zoom-in-down">
                         <img className='socials_icon' src={github_icon} alt="Github icon" />
                     </a>
 
-                    <a href={linkedinUrl} target="_blank" rel="noopener noreferrer">
+                    <a href={linkedinUrl} target="_blank" rel="noopener noreferrer" data-aos="zoom-in-down">
                         <img className='socials_icon' src={linkedin_icon} alt="LinkedIn icon" />
                     </a>
 
-                    <a href={XUrl} target="_blank" rel="noopener noreferrer">
+                    <a href={XUrl} target="_blank" rel="noopener noreferrer" data-aos="zoom-in-down">
                         <img className='socials_icon' src={X_icon} alt="X icon" />
                     </a>
 
-                    <a href={whatsAppUrl} target="_blank" rel="noopener noreferrer">
+                    <a href={whatsAppUrl} target="_blank" rel="noopener noreferrer" data-aos="zoom-in-down">
                         <img className='socials_icon' src={whatapp_icon} alt="WhatsApp icon" />
                     </a>
                 </div>

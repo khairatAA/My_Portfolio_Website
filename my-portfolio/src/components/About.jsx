@@ -1,6 +1,7 @@
 import About_me from "../assets/about_me.svg";
 import React, { useContext, useEffect, useRef } from 'react';
 import { ScrollContext } from "./ScrollContext";
+import { HiDownload } from "react-icons/hi";
 
 /* About section */
 
@@ -44,10 +45,10 @@ const About = ({ sectionId }) => {
         <div className="about" id={sectionId} ref={sectionRef}>
             <div className="about_content">
                 <div className="about_content_title">
-                    <p className="about_title">
+                    <p className="about_title" data-aos="fade-right">
                         What am I all
                     </p>
-                    <p className="about_title">
+                    <p className="about_title" data-aos="fade-left">
                         about?
                     </p>
                 </div>
@@ -60,7 +61,7 @@ const About = ({ sectionId }) => {
                         aiming to create seamless user experiences and scalable applications.
                     </p>
 
-                    <p className="about_content_edu_title">My Educations</p>
+                    <p className="about_content_edu_title" data-aos="zoom-out">My Educations</p>
                     <div className="about_content_edu">
                         <div className="edu">
                             <p className="edu_title">
@@ -79,8 +80,8 @@ const About = ({ sectionId }) => {
                     </div>
                 </div>
                 <div className="about_content_btn">
-                    <button className='btn' onClick={openResumeUrl}>
-                        View Resume
+                    <button className='btn' onClick={openResumeUrl} data-aos="fade-down">
+                        Download Resume <HiDownload  className="react-icon"/>
                     </button>
                 </div>
             </div>

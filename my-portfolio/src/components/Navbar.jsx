@@ -80,7 +80,10 @@ export default function Navbar() {
                 </ul>
 
                 {/* Button on the left */}
-                <button className='btn' onClick={scrollToContact}>
+                <button className='btn' onClick={() => {
+                    scrollToContact();
+                    handleLinkClick();
+                }}>
                         Contact Me
                 </button>
             </div>

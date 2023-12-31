@@ -91,7 +91,7 @@ const Portfolio = ({ sectionId }) => {
    
     return (
         <div className="portfolio" id={sectionId} ref={sectionRef}>
-            <p className="portfolio-title">Portfolio</p>
+            <p className="portfolio-title" data-aos="zoom-in">Portfolio</p>
             <Slider {...settings}>
                 {portfolio_data.map((d) => (
                     <div className="portfolio-body">
@@ -101,14 +101,14 @@ const Portfolio = ({ sectionId }) => {
 
                         <div className="portfolio-text">
                             <p className="portfolio-name">{d.name}</p>
-                            <p className="portfolio-stack">{d.stack}</p>
+                            <p className="portfolio-stack" data-aos="fade-right">{d.stack}</p>
                             <p className="portfolio-content">{d.content}</p>
 
                             <div className="portfolio-btn">
-                                <a href={d.liveDemoUrl} target="_blank" rel="noopener noreferrer">
+                                <a href={d.liveDemoUrl} target="_blank" rel="noopener noreferrer" data-aos="fade-down">
                                     <button className="btn">Live Demo</button>
                                 </a>
-                                <a href={d.ViewCodeUrl} target="_blank" rel="noopener noreferrer">
+                                <a href={d.ViewCodeUrl} target="_blank" rel="noopener noreferrer" data-aos="fade-down">
                                     <button className="btn">View Code</button>
                                 </a>
                             </div>
