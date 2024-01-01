@@ -44,7 +44,9 @@ html{
 .about_content_btn button,
 .about_content_btn button:hover,
 .portfolio-btn .btn,
-.portfolio-btn:hover .btn {
+.portfolio-btn:hover .btn,
+.skill_content_btn button,
+.skill_content_btn button:hover {
     color: #FFFFFF;
     background-color: #DEC127;
     font-size: 1rem;
@@ -101,7 +103,7 @@ nav.navbar.navbar-expand-lg.navbar-light.fixed-top {
 }
 
 /* home section and About section*/
-.home, .about, .contact-me {
+.home, .about, .contact-me{
     display: flex;
     flex-direction: row;
     padding: 7rem 9%;
@@ -126,7 +128,8 @@ nav.navbar.navbar-expand-lg.navbar-light.fixed-top {
 .home_content_name,
 .about_content_title,
 .portfolio-title,
-.contact-me-title {
+.contact-me-title,
+.skills-title {
     font-weight:bolder;
     font-size: 2.5rem;
 }
@@ -157,7 +160,7 @@ nav.navbar.navbar-expand-lg.navbar-light.fixed-top {
 }
 
 /* About section */
-.about {
+.about, .skills {
     padding-top: 0;
     align-items: center;
 }
@@ -186,12 +189,12 @@ nav.navbar.navbar-expand-lg.navbar-light.fixed-top {
 
 /* Portfolio section*/
 
-.portfolio {
+.portfolio, .skills {
     padding: 7rem 9%;
     padding-top: 0;
 }
 
-.portfolio-title{
+.portfolio-title, .skills-title{
     text-align: center;
     padding-bottom: 2rem;
 }
@@ -242,6 +245,59 @@ nav.navbar.navbar-expand-lg.navbar-light.fixed-top {
     margin-top: auto;
 }
 
+/* Skills section */
+.skills-background {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px; /* Add margin for spacing */
+}
+  
+.skill-card {
+    width: 100px; /* Adjust card width */
+    height: 100px; /* Adjust card height */
+    background-color: rgba(248, 242, 242, 0.2);
+    border-radius: 30px; /* Adjust border-radius for rounded corners */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for depth */
+    cursor: pointer;
+    backdrop-filter: blur(20px);
+    position: relative; /* Set position to allow overlay */
+    transition: transform 0.3s ease-in-out; /* Add a smooth transition effect */
+    overflow: hidden;
+}
+
+.skill-card:hover {
+    transform: scale(1.1); /* Enlarge the card on hover */
+}
+  
+.skills-logo {
+    display: flex;
+    flex-direction: row; /* Display cards in a column */
+    gap: 20px; /* Add spacing between cards */
+    align-items: center; /* Center cards horizontally */
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.skill-img {
+    width: 62px; /* Adjust image width */
+    height: 52px; /* Adjust image height */
+    background-color: rgba(220, 220, 220, 0.05);
+}
+
+.skill_content_btn{
+    display: flex;
+    justify-content: center;
+    padding-top: 4rem;
+}
+
+.skill_content_btn button, .skill_content_btn button:hover{
+    padding: 7px 3rem;
+}   
 
 /* Contact Me */
 .contact-me{
@@ -368,6 +424,7 @@ input[type="submit"] {
     .home_content_name,
     .about_content_title,
     .portfolio-title,
+    .skills-title
     .contact-me-title {
         font-size: 1.9rem;
     }
@@ -394,6 +451,20 @@ input[type="submit"] {
         padding-bottom: 1rem;
     }
 
+    /* Skills */
+    .skills-logo{
+        gap: 25px;
+    }
+
+    .skills-background{
+        margin: 0;
+    }
+
+    .skill-card{
+        width: 75px;
+        height: 75px;
+    }
+
     /*Contact me*/
     .contact-me-form{
         width: 300px;
@@ -407,7 +478,8 @@ input[type="submit"] {
     .home_content_name,
     .about_content_title,
     .portfolio-title,
-    .contact-me-title {
+    .contact-me-title,
+    .skills-title{
         font-size: 1.6rem;
     }
 

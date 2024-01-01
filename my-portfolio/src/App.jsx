@@ -10,6 +10,7 @@ import Portfolio from './components/Portfolio';
 import ContactMe from './components/Contact';
 import { ScrollProvider } from "./components/ScrollContext";
 // import { Switch } from '@headlessui/react';
+import Skills from './components/Skills';
 
 
 {/* All the compontents are called here amd route to
@@ -24,6 +25,7 @@ const App = () => {
           <Home sectionId='home' />
           <About sectionId='about' />
           <Portfolio sectionId='portfolio' />
+          <Skills sectionId='skills' />
           <ContactMe />
         </div>
       </ScrollProvider>
