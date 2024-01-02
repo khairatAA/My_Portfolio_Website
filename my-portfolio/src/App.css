@@ -465,6 +465,11 @@ input[type="submit"] {
         height: 75px;
     }
 
+    .skill-img{
+        width: 45px;
+        height: 40px;
+    }
+
     /*Contact me*/
     .contact-me-form{
         width: 300px;
