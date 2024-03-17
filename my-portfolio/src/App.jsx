@@ -1,6 +1,5 @@
-import React from 'react';
 import './App.css'
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import Home from './components/Home';
@@ -20,7 +19,7 @@ const App = () => {
   return (
     <Router>
       <ScrollProvider>
-        <div>
+        <div className=' bg-purple font-sans'>
           <Navbar /> {/* Will include the navber in every page */}
           <Home sectionId='home' />
           <About sectionId='about' />
@@ -34,14 +33,3 @@ const App = () => {
 }
 
 export default App;
-{/* <Routes>
-            
-            <Route path="/" element={<Home sectionId="home" />} />
-
-            <Route path="/#about" element={<About sectionId="about" />} />
-
-            <Route path="/#portfolio" element={<Portfolio sectionId="portfolio" />} />
-
-            <Route path="/#contact" element={<ContactMe sectionId="contact" />} />
-
-          </Routes> */}
