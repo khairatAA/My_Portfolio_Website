@@ -1,16 +1,12 @@
-import About_me from "../assets/about_me.svg";
-import React, { useContext, useEffect, useRef } from 'react';
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable react/prop-types */
+import { useContext, useEffect, useRef } from 'react';
 import { ScrollContext } from "./ScrollContext";
-import { HiDownload } from "react-icons/hi";
+import Timeline from "./Timeline";
 
 /* About section */
 
 const About = ({ sectionId }) => {
-    // Open Resume URL
-    const openResumeUrl = () => {
-        const resumeUrl = 'https://drive.google.com/file/d/1bjMnbFqPxgDdAzdxSoY2yqp70DBXqwyJ/view?usp=sharing';
-        window.open(resumeUrl, '_blank');
-    };
 
     // Handles the scrolling effect even the function is clicked from the navbar
     // Using Intersection observer
@@ -42,51 +38,13 @@ const About = ({ sectionId }) => {
     }, [setActiveSection, sectionId]);
     
     return (
-        <div className="about" id={sectionId} ref={sectionRef}>
-            <div className="about_content">
-                <div className="about_content_title">
-                    <p className="about_title" data-aos="zoom-in">
-                        What am I all
-                    </p>
-                    <p className="about_title" data-aos="zoom-in">
-                        about?
-                    </p>
+        <div className=" pt-28 px-10 max-sm:px-5 flex w-full" id={sectionId} ref={sectionRef}>
+            <div className=" flex flex-col gap-8 w-full">
+                <div className=" flex flex-col">
+                    <p className="text-3xl max-lg:text-2xl max-sm:text-xl font-medium text-center">WHAT I HAVE DONE SO FAR</p>
+                    <p className="font-extrabold text-5xl max-lg:text-4xl max-sm:text-3xl text-center text-gold" data-aos="zoom-in">Experience</p>
                 </div>
-                <div className="about_content_text">
-                    <p className="content"> Welcome to my portfolio! I'm thrilled that you're exploring my work.
-                        My passion lies in constructing both frontend and backend components of applications. As a Full-
-                        stack Software Engineer, I specialize in a wide array of technologies including C programming,
-                        Python, React JS, Node JS, MySQL, HTML, and CSS.
-                        I'm dedicated to crafting robust solutions that merge creativity with functionality,
-                        aiming to create seamless user experiences and scalable applications.
-                    </p>
-
-                    <p className="about_content_edu_title" data-aos="zoom-out">My Educations</p>
-                    <div className="about_content_edu">
-                        <div className="edu">
-                            <p className="edu_title">
-                                ALX SE Program
-                            </p>
-                            <p className="edu_degree">
-                                Internship
-                            </p>
-                        </div>
-                        <div className="edu">
-                            <p className="edu_title">Kwara State University</p>
-                            <p className="edu_degree">
-                                B.Tech (Food Sci & Tech)
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div className="about_content_btn">
-                    <button className='btn' onClick={openResumeUrl} data-aos="fade-down">
-                        Download Resume <HiDownload  className="react-icon"/>
-                    </button>
-                </div>
-            </div>
-            <div className="about_img">
-                <img src={About_me} alt="Lady sitting in front of a screen" />
+                <Timeline />
             </div>
         </div>
     )

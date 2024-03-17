@@ -5,11 +5,17 @@ const TypewriterComponent = () => {
     return (
         <Typewriter
           onInit={(typewriter) => {
-            typewriter.typeString('Khairat Adesina')
+            typewriter
+              .pauseFor(1000)
+              .typeString("I'm a Software Engineer")
+              .pauseFor(1000)
+              .deleteChars(17)
+              .typeString('Frontend Engineer')
+              .pauseFor(1000)
+              .deleteChars(17)
+              .typeString('Web Developer')
               .pauseFor(1000)
               .deleteAll()
-              .typeString('')
-              .pauseFor(1000)
               .start();
           }}
           options={{

@@ -1,13 +1,11 @@
 import { Link } from 'react-router-dom';
 import React, { useState, useContext, useEffect } from 'react';
 import { ScrollContext } from "./ScrollContext";
+import { ButtonComponent } from './Reuseables';
 
-
-{/* The Navbar componet of the website */}
 export default function Navbar() {
-
-    // To scroll smoothly to the Contact me section
     const { setActiveSection } = useContext(ScrollContext);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const scrollToContact = () => {
         setActiveSection('contact');
@@ -17,77 +15,95 @@ export default function Navbar() {
         }
     };
 
-    // Handle the navbar for smaller mobile devices, closes when the screen is clicked
-    useEffect(() => {
-        const handleDocumentClick = (e) => {
-          // Check if the navbar is open and the click is outside the navbar
-          const navbar = document.querySelector('.navbar-collapse');
-          const toggleButton = document.querySelector('.navbar-toggler');
-    
-          if (navbar.classList.contains('show') && !navbar.contains(e.target) && toggleButton !== e.target) {
-            navbar.classList.remove('show');
-          }
-        };
-    
-        document.addEventListener('click', handleDocumentClick);
-    
-        return () => {
-          document.removeEventListener('click', handleDocumentClick);
-        };
-    }, []);
+    const handleMenuToggle = () => {
+        setIsMenuOpen(!isMenuOpen);
+    };
 
-    // handles when a section of the nabar is clicked on smaller devices, it closes automatically
     const handleLinkClick = () => {
-        const navbar = document.querySelector('.navbar-collapse.show');
-        if (navbar) {
-          navbar.classList.remove('show');
+        setIsMenuOpen(false);
+    };
+
+    const scrollToSection = (sectionId) => {
+        const section = document.getElementById(sectionId);
+        if (section) {
+          section.scrollIntoView({ behavior: 'smooth' });
         }
     };
 
     return (
-    <nav className="navbar navbar-expand-lg navbar-light fixed-top">
-        <div className="container-fluid">
-            <a href='/' className="navbar-brand">Khairat</a>
-            {/* Responsive icon */}
-            <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span className="navbar-toggler-icon"></span>
-            </button>
-
-
-            {/* Full Navbar content */}
-            <div className="collapse navbar-collapse" id="navbarNav">
-                <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li className="nav-item">
-                        <a href='/' className="nav-link home-colour">Home</a>
-                    </li>
-
-                    <li className="nav-item">
-                        <a href='#about' className="nav-link" onClick={handleLinkClick}>About Me</a>
-                    </li>
-
-                    <li className="nav-item">
-                        <a href='#portfolio' className="nav-link" onClick={handleLinkClick}>Portfolio</a>
-                    </li>
-
-                    <li className="nav-item">
-                        <a href='#skills' className="nav-link" onClick={handleLinkClick}>Skills</a>
-                    </li>
-
-                    <li className="nav-item">
-                        <a href='#services' className="nav-link" onClick={handleLinkClick}>Services</a>
-                    </li>
-                    {/* Add similar links for other sections */}
-                </ul>
-
-                {/* Button on the left */}
-                <button className='btn' onClick={() => {
-                    scrollToContact();
-                    handleLinkClick();
-                }}>
-                        Contact Me
-                </button>
+        <nav className=" shadow-lg sticky top-0 bg-purple z-50 px-10 max-sm:px-5">
+            <div className=" mx-auto bg-purple">
+                <div className="flex py-3 justify-between items-center">
+                    <div className="flex flex-row items-center justify-between max-lg:w-full">
+                        <a href='/' className=" text-gold font-bold text-2xl no-underline">
+                            Khairat
+                        </a>
+                        {/* Menu button for smaller screens */}
+                        <button className="lg:hidden ml-auto mobile-menu-button" onClick={handleMenuToggle}>
+                            <svg className="w-8 h-8" fill="none" stroke="rgb(222, 193, 39)" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    {/* Menu items for larger screens */}
+                    <ul className="hidden lg:flex mb-0 items-center space-x-4">
+                        <li>
+                            <a href='/' className=" px-2 text-[black] font-medium no-underline text-xl hover:text-gold">Home</a>
+                        </li>
+                        <li>
+                            <a href='#about' className="px-2 text-[black] font-medium no-underline text-xl hover:text-gold" onClick={handleLinkClick}>About Me</a>
+                        </li>
+                        <li>
+                            <a href='#portfolio' className="px-2 text-[black] font-medium no-underline text-xl hover:text-gold" onClick={handleLinkClick}>Portfolio</a>
+                        </li>
+                        <li>
+                            <a href='#skills' className="px-2 text-[black] font-medium no-underline text-xl hover:text-gold" onClick={handleLinkClick}>Skills</a>
+                        </li>
+                        <li>
+                            <a href='#services' className="px-2 text-[black] font-medium no-underline text-xl hover:text-gold" onClick={handleLinkClick}>Services</a>
+                        </li>
+                    </ul>
+                    {/* Contact Me button for larger screens */}
+                    <div className="hidden lg:flex items-center space-x-4" onClick={() => {
+                            scrollToContact();
+                            handleLinkClick();
+                    }}>
+                        <ButtonComponent
+                            text='Contact Me'
+                        />
+                    </div>
+                </div>
+                {/* Collapsible menu for smaller screens */}
+                {isMenuOpen && (
+                    <div className=" lg:hidden absolute inset-x-0 top-16 z-50 bg-purple w-full">
+                        <ul className="flex flex-col space-y-1 w-full pr-5">
+                            <li onClick={() => { handleLinkClick(); scrollToSection('home'); }} className="px-2 text-[black] py-2 cursor-pointer font-medium no-underline hover:text-gold text-xl">
+                                Home
+                            </li>
+                            <li onClick={() => { handleLinkClick(); scrollToSection('about'); }} className="px-2 text-[black] py-2 cursor-pointer font-medium no-underline text-xl hover:text-gold ">
+                                About Me
+                            </li>
+                            <li onClick={() => { handleLinkClick(); scrollToSection('portfolio'); }} className="px-2 text-[black] py-2 cursor-pointer font-medium no-underline text-xl hover:text-gold ">
+                                Portfolio
+                            </li>
+                            <li onClick={() => { handleLinkClick(); scrollToSection('skills'); }} className="px-2 text-[black] py-2 cursor-pointer font-medium no-underline text-xl hover:text-gold ">
+                                Skills
+                            </li>
+                            <li onClick={() => { handleLinkClick(); scrollToSection('services'); }} className="px-2 text-[black] py-2 cursor-pointer font-medium no-underline text-xl hover:text-gold ">
+                                Services
+                            </li>
+                        </ul>
+                        <div className=' pl-7 pb-3' onClick={() => {
+                            scrollToContact();
+                            handleLinkClick();
+                        }}>
+                            <ButtonComponent
+                                text='Contact Me'
+                            />
+                        </div>
+                    </div>
+                )}
             </div>
-        </div>
-    </nav>
-    )
+        </nav>
+    );
 }
