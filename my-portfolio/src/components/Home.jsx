@@ -1,20 +1,23 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/prop-types */
 import hero_img from '../assets/hero_img.svg'
 import github_icon from '../assets/github_icon.svg'
 import linkedin_icon from '../assets/linkedin_icon.svg'
 import X_icon from '../assets/X_icon.svg'
 import whatapp_icon from '../assets/whatapp_icon.svg'
 import TypewriterComponent from "./TypingEffect";
-import React, { useContext, useEffect, useRef, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 import { ScrollContext } from "./ScrollContext";
 import AOS from 'aos'; // For animation
 import 'aos/dist/aos.css';
 import ParticleEffect from './ParticleEffect';
+import { ButtonComponent } from './Reuseables'
+import { Download } from 'lucide-react'
 
 
 {/* Contents of the Home page */}
 const Home = ({ sectionId }) => {
-    const originalText = "Khairat Adesina";
-    const TypingSpeed = 500;
     const githubUrl = 'https://github.com/khairatAA';
     const linkedinUrl = 'https://www.linkedin.com/in/khairat-adesina1234/';
     const XUrl = 'https://twitter.com/_dedamola';
@@ -35,7 +38,7 @@ const Home = ({ sectionId }) => {
             // Determine the current section based on scroll position
             // For simplicity, let's assume 'home' section is at the top
             const scrollTop = window.scrollY || document.documentElement.scrollTop;
-            if (scrollTop < 200) {
+            if (scrollTop < 100) {
               setCurrentSection('home');
             } else {
               setCurrentSection(''); // If not in the 'home' section
@@ -75,44 +78,54 @@ const Home = ({ sectionId }) => {
         };
     }, [setActiveSection, sectionId]);
 
+    // Open Resume URL
+    const openResumeUrl = () => {
+        const resumeUrl = 'https://drive.google.com/file/d/1S8SJNyfAVRXj-sjQBrpgmf_-ej8KJx7a/view?usp=sharing';
+        window.open(resumeUrl, '_blank');
+    };
+
     return (
-        <div className= "home" id={sectionId} ref={sectionRef}>
-            {currentSection === 'home' && <ParticleEffect />}
+        <div className=" px-10 max-md:px-5 pt-14 max-md:pt-5 max-sm:pt-3 flex max-lg:gap-20 max-lg:flex-col-reverse items-center w-full " id={sectionId} ref={sectionRef}>
            <div
-           className="home_img">
-                <img src={hero_img} className='girl_img' alt="Ambitious woman walking" />
+            className=" w-[45%] max-lg:w-full flex justify-center">
+                <img src={hero_img} className=' ml-0' alt="Ambitious woman walking" />
            </div>
-           <div className='home_content'>
-                <div className='home_content_name'>
+           <div className=' w-[45%] max-lg:w-full flex flex-col gap-3'>
+                <div className=' font-extrabold text-5xl max-lg:text-4xl max-sm:text-3xl'>
                   <p data-aos="fade-right">Hi, my name is </p>
-                  <TypewriterComponent />
+                  <p>Khairat Adesina</p>
                 </div>
-                <div className='home_content_title' data-aos="fade-left">
-                    Software Engineer
+                <div className=' text-gold font-extrabold text-4xl max-lg:text-3xl max-sm:text-2xl'>
+                    <TypewriterComponent />
                 </div>
-                <div className='home_content_body'>
-                Results-driven Full Stack Software Engineer with multiple years of experience developing
-                robust and scalable applications. Proficient in C programming, Python, Node.js, React.js,
-                MySQL, Bootstrap, HTML, CSS and DevOps.
+                <div className=' text-base font-medium'>
+                Proficient in C programming, Python, Node.js, React.js, TypeScript, Tailwind, RESTFUL APIs, MySQL, and
+                DevOps, consistently delivering innovative solutions that optimize performance and enhance user experience.
+                Skilled in problem analysis, critical thinking, teamwork, and decision-making.
                 </div>
-                <div className='home_content_socials'>
-                    <a href={githubUrl} target="_blank" rel="noopener noreferrer" data-aos="zoom-in-down">
-                        <img className='socials_icon' src={github_icon} alt="Github icon" />
-                    </a>
+                <div className=' flex gap-3 flex-wrap'>
+                    <div className='flex gap-3 items-center'>
+                        <a href={githubUrl} target="_blank" rel="noopener noreferrer" >
+                            <img className=' w-9' src={github_icon} alt="Github icon" />
+                        </a>
 
-                    <a href={linkedinUrl} target="_blank" rel="noopener noreferrer" data-aos="zoom-in-down">
-                        <img className='socials_icon' src={linkedin_icon} alt="LinkedIn icon" />
-                    </a>
+                        <a href={linkedinUrl} target="_blank" rel="noopener noreferrer" >
+                            <img className=' w-9' src={linkedin_icon} alt="LinkedIn icon" />
+                        </a>
 
-                    <a href={XUrl} target="_blank" rel="noopener noreferrer" data-aos="zoom-in-down">
-                        <img className='socials_icon' src={X_icon} alt="X icon" />
-                    </a>
+                        <a href={XUrl} target="_blank" rel="noopener noreferrer" >
+                            <img className=' w-9' src={X_icon} alt="X icon" />
+                        </a>
 
-                    <a href={whatsAppUrl} target="_blank" rel="noopener noreferrer" data-aos="zoom-in-down">
-                        <img className='socials_icon' src={whatapp_icon} alt="WhatsApp icon" />
-                    </a>
+                        <a href={whatsAppUrl} target="_blank" rel="noopener noreferrer" >
+                            <img className=' w-9' src={whatapp_icon} alt="WhatsApp icon" />
+                        </a>
+                    </div>
+                    <ButtonComponent onClick={openResumeUrl} text='View Resume' image={<Download />} />
                 </div>
            </div>
+           {<ParticleEffect className="" />}
+           {/* {currentSection === 'home' && <ParticleEffect className="" />} */}
         </div>
     )
 };

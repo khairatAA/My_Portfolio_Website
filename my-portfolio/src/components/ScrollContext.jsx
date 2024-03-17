@@ -1,6 +1,7 @@
+/* eslint-disable react/prop-types */
 // Defined the scroll content to achieve the scrolling to a particular point
 
-import { createContext, useContext, useState } from "react";
+import { createContext, useState } from "react";
 
 const ScrollContext = createContext();
 

@@ -1,7 +1,11 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable react/prop-types */
 // Skills section of the portfolio website
-import React, { useContext, useEffect, useRef } from 'react';
+import { useContext, useEffect, useRef } from 'react';
 import { ScrollContext } from "./ScrollContext";
-import skills_data from '../../skills_data';
+import skills_data from './Data/skills_data';
+import { Tilt } from "react-tilt";
+import { motion } from "framer-motion"
 //import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Skills = ({ sectionId }) => {
@@ -35,23 +39,29 @@ const Skills = ({ sectionId }) => {
     }, [setActiveSection, sectionId]);
 
     return(
-        <div className="skills" id={sectionId} ref={sectionRef}>
-            <p className="skills-title" data-aos="zoom-in">Skills</p>
-            <div className='skills-logo' data-aos="zoom-out">
+        <div className="pt-28 px-10 max-sm:px-5 flex flex-col items-center" id={sectionId} ref={sectionRef}>
+            <h1 className="font-extrabold text-5xl max-lg:text-4xl max-sm:text-3xl text-center text-gold" data-aos="zoom-in">Skills</h1>
+            <p className=' text-center font-semibold text-lg'>Discover my varied skill set.</p>
+            <div className=' flex flex-wrap justify-center gap-8'>
                 {skills_data.map((skill, index) => (
-                    <div className='skills-background' key={index}>
-                        <div className='skill-card'>
-                            <img src={skill.img} className='skill-img' alt="Skill icons" />
-                        </div>
-                    </div>
+                    <motion.div key={index}>
+                        <Tilt
+                        options ={{
+                            max:45,
+                            scale: 1,
+                            speed: 450
+                        }}
+                        className=' w-28 h-28 flex items-center justify-center rounded-full bg-[#7A78C4] shadow-md cursor-pointer  border-2 border-[#7A78C4] hover:border-gold transition-transform' key={index}
+                        >
+                            <div >
+                                <img src={skill.img} className=' w-16 h-14' alt="Skill icons" />
+                            </div>
+                        </Tilt>
+                    </motion.div>
                 ))}
             </div>
-            <div className="skill_content_btn">
-                <button className='btn' data-aos="fade-down">
-                    More Skills
-                </button>
-            </div>
-        </div>       
+        </div>
+       
     );
 }
 
