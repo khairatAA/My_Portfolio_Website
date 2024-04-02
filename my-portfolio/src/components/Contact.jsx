@@ -16,6 +16,14 @@ const ContactMe = ({ onClose }) => {
     const sendEmail = (e) => {
         e.preventDefault();
 
+        const { user_name, user_email, message } = form.current;
+
+        // Check if any field is empty
+        if (!user_name.value || !user_email.value || !message.value) {
+            setNotification({ type: 'error', message: 'Please fill out all fields.' });
+            return;
+        }
+
         emailjs.sendForm(
             import.meta.env.VITE_SERVICE_ID,
             import.meta.env.VITE_TEMPLATE_ID,
@@ -24,9 +32,7 @@ const ContactMe = ({ onClose }) => {
             )
             
             .then((result) => {
-                console.log(result.text);
                 setNotification({ type: 'success', message: 'Message sent successfully!' });
-                console.log("message sent");
                 // onClose();
                 e.target.reset();
             }, (error) => {
@@ -42,8 +48,8 @@ const ContactMe = ({ onClose }) => {
     <div className=' w-[400px] max-sm:w-full'>
 
         {notification && (
-            <div className={`notification ${notification.type} font-bold`}>
-                {notification.message}
+            <div className={`font-bold ${notification && notification.type === 'success' ? ' text-gold' : 'text-black'}`}>
+                {notification && notification.message}
             </div>
         )}
 
