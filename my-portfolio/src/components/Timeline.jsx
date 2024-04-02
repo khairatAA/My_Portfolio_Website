@@ -14,7 +14,7 @@ function Timeline() {
                 iconStyle={{ background: 'rgba(222, 193, 39, 100%)', color: 'black'}}
                 icon={<Star />}
             >
-                <h3 className="vertical-timeline-element-title">Full Stack Software Engineering Intern</h3>
+                <h3 className="vertical-timeline-element-title">Full Stack Software Engineer</h3>
                 <h4 className="vertical-timeline-element-subtitle pt-2 text-gold">Mansa Stars</h4>
                 <p>
                     Craft intuitive user interfaces and enhancing user experiences. Leveraging technologies like React.js and TypeScript.
