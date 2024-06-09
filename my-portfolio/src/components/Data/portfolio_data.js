@@ -1,16 +1,37 @@
 /* eslint-disable no-unused-vars */
 // This file contains data used for the portfolio section of the website
 import simple_shell from "../../assets/simple_shell.svg";
-import portfolio_image from "../../assets/portfolio_image.svg";
 import monty from "../../assets/monty.svg";
 import fast_travel from "../../assets/fast_travel.png";
 import api from '../../assets/api.png'
-import clearLink from '../../assets/clearLink.png'
+import Quizfinity from '../../assets/Quizfinity.png'
 import Naytif from '../../assets/Naytif.png'
 
 
 
 const data = [
+    {
+        name: "Quizfinity",
+        description:
+            "A mobile application that allows users to engage in quizzes across various categories, with a seamless user experience and intuitive interface. It is accessible to all users on Google Play Store.",
+        tags: [
+            {
+                name: "React Native",
+                color: "blue",
+            },
+            {
+                name: "Firebase",
+                color: "yellow",
+            },
+            {
+                name: "TypeScript",
+                color: "blue",
+            },
+        ],
+        image: Quizfinity,
+        source_code_link: "https://github.com/khairatAA/Quizfinity",
+        live_link: "https://quizfinity-showcase.vercel.app/"
+    },
     {
         name: "Naytif",
         description:
@@ -32,24 +53,6 @@ const data = [
         image: Naytif,
         source_code_link: "https://github.com/khairatAA/Naytif",
         live_link: "https://naytif.vercel.app/"
-    },
-    {
-        name: "ClearLink",
-        description:
-            "Crafted a static webpage for ClearLink, a video conferencing application, leveraging React JS for the frontend. Harnessing the power of ReactJS, known for its code reusability and redundancy prevention.",
-        tags: [
-            {
-                name: "React Js",
-                color: "blue",
-            },
-            {
-                name: "Tailwind",
-                color: "gold",
-            },
-        ],
-        image: clearLink,
-        source_code_link: "https://github.com/khairatAA/ClearLink",
-        live_link: "https://clear-link-nu.vercel.app/"
     },
     {
         name: "MongoDB Image API",
