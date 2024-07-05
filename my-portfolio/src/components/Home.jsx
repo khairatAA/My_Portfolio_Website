@@ -22,7 +22,7 @@ const Home = ({ sectionId }) => {
   const githubUrl = "https://github.com/khairatAA";
   const linkedinUrl = "https://www.linkedin.com/in/khairat-adesina1234/";
   const XUrl = "https://twitter.com/_dedamola";
-  const whatsAppUrl = "";
+  // const whatsAppUrl = "";
 
   // Handles the scrolling effect even the function is clicked from the navbar
   // Using Intersection observer
@@ -123,9 +123,9 @@ const Home = ({ sectionId }) => {
               <img className=" w-9" src={X_icon} alt="X icon" />
             </a>
 
-            <a href={whatsAppUrl} target="_blank" rel="noopener noreferrer">
+            {/* <a href={whatsAppUrl} target="_blank" rel="noopener noreferrer">
               <img className=" w-9" src={whatapp_icon} alt="WhatsApp icon" />
-            </a>
+            </a> */}
           </div>
           <ButtonComponent
             onClick={openResumeUrl}
