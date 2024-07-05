@@ -22,7 +22,7 @@ const Home = ({ sectionId }) => {
   const githubUrl = "https://github.com/khairatAA";
   const linkedinUrl = "https://www.linkedin.com/in/khairat-adesina1234/";
   const XUrl = "https://twitter.com/_dedamola";
-  const whatsAppUrl = "https://wa.me/qr/JNIEBHHUOJ6WP1";
+  const whatsAppUrl = "";
 
   // Handles the scrolling effect even the function is clicked from the navbar
   // Using Intersection observer
@@ -81,7 +81,7 @@ const Home = ({ sectionId }) => {
   // Open Resume URL
   const openResumeUrl = () => {
     const resumeUrl =
-      "https://drive.google.com/file/d/1S8SJNyfAVRXj-sjQBrpgmf_-ej8KJx7a/view?usp=sharing";
+      "https://drive.google.com/file/d/11n2kDN1rJCz6aE5GVYGp5og4x3yrLei0/view?usp=sharing";
     window.open(resumeUrl, "_blank");
   };
 
